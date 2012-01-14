@@ -2,50 +2,14 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" language="javascript"></script>
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <script src="./js/here.js" language="javascript"></script>
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
 	<script language="javascript">
-      function createTopbar()
-	  {
-			//if logged in
-			if(false)
-			{
-			}
-			else
-			{
-				var form = document.createElement("form");
-				form.action="";
-				
-				var usernameInput = document.createElement("input");
-				usernameInput.className="input-small";
-				usernameInput.type="text";
-				usernameInput.placeholder="Username";
-				
-				var passwordInput = document.createElement("input");
-				passwordInput.className="input-small";
-				passwordInput.type="password";
-				passwordInput.placeholder="Password";
-				
-				var login = document.createElement("input");
-				login.className="btn primary";
-				login.type="submit";
-				login.value="Sign in";
-				
-				form.appendChild(usernameInput);
-				form.appendChild(passwordInput);
-				form.appendChild(login);
-				document.getElementById("rightSide").appendChild(form);
-			}
-	  }
+      
 	</script>
   </head>
   <body onload="createTopbar();">
-	<div class="topbar" data-scrollspy="scrollspy">
-		<div class="fill">
-			<div class="container">
-				<a class="brand" href="#"> &nbsp </a>
-			    <div id="rightSide" class="pull-right"></div>
-			</div>
-		</div>
+	<div id="topbar" class="topbar" data-scrollspy="scrollspy">
 	</div>
 	<div class="content">
 		<div class="row"> </div>
