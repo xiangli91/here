@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" language="javascript"></script>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+	<script language="javascript">
+      function createTopbar()
+	  {
+			//if logged in
+			if(false)
+			{
+			}
+			else
+			{
+				var form = document.createElement("form");
+				form.action="";
+				
+				var usernameInput = document.createElement("input");
+				usernameInput.className="input-small";
+				usernameInput.type="text";
+				usernameInput.placeholder="Username";
+				
+				var passwordInput = document.createElement("input");
+				passwordInput.className="input-small";
+				passwordInput.type="password";
+				passwordInput.placeholder="Password";
+				
+				var login = document.createElement("input");
+				login.className="btn primary";
+				login.type="submit";
+				login.value="Sign in";
+				
+				form.appendChild(usernameInput);
+				form.appendChild(passwordInput);
+				form.appendChild(login);
+				document.getElementById("rightSide").appendChild(form);
+			}
+	  }
+	</script>
+  </head>
+  <body onload="createTopbar();">
+	<div class="topbar" data-scrollspy="scrollspy">
+		<div class="fill">
+			<div class="container">
+				<a class="brand" href="#"> &nbsp </a>
+			    <div id="rightSide" class="pull-right"></div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="row"> </div>
+		<div class="row">
+			<div class="span11">
+				<img src="./img/logo.png">
+			</div>
+			<div class="span5" style="margin-top:100px;">
+				<form>
+					<fieldset>
+						<legend>new user?</legend>
+						<div class="input" style="margin-bottom:10px">
+							<input type="radio" checked name="studentRadio" value="student">student</input>
+							<input style="margin-left:30px" type="radio" checked name="studentRadio" value="teacher">teacher</input>
+						</div>
+						<div class="clearfix">
+							<div class="input">
+							  <input class="xlarge" type="text" placeholder="name" id="name"></input>
+							</div>
+						</div>
+						<div class="clearfix">
+							<div class="input">
+							  <input class="xlarge" type="email" placeholder="school email" id="email"></input>
+							</div>
+						</div>
+						<div class="clearfix">
+							<div class="input">
+							  <input class="xlarge" type="password" placeholder="password" id="password"></input>
+							</div>
+						</div>
+						<div class="clearfix">
+							<input type="submit" class="btn large primary" value="Sign up!" style="margin-left:221px"></input>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
