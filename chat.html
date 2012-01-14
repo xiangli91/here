@@ -2,62 +2,91 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" language="javascript"></script>
-    <script src="./js/cloudmine.js" language="javascript"></script>
-    <script language="javascript">
-      $(document).ready(function() {
-          var appid = "ae44751608f0431989b26a5943500596";
-          var apikey = "d5f3bfe83d7041889bd1b072bdba101e";
-
-          cloudmine.init({app_id: appid, api_key: apikey});
-
-          $('#message').bind('keydown', function(event) {
-              // Only bind to the return/enter key being pressed.
-              if(event.which == 13) {
-                  // Construct some sort of unique identifier
-                  // (in this case, we are using the UNIX timestamp).
-                  var key = new Date().getTime();
-
-                  // This is our data model.
-                  // Basically just store the person's name and their message in a JSON object.
-                  var data = {
-                      'name': $('#name').val(),
-                      'message': $('#message').val()
-                  };
-
-                  // Call the CloudMine API to actually push the data to the CM servers.
-                  cloudmine.updateValue(key, data, function(){
-                      cloudmine.log("Saved: " + key + ": " + data);
-                  });
-
-                  // Clear the message box.
-                  $('#message').val('');
-              }
-          });
-
-          // Setup polling of the CloudMine servers to update the chat box.
-          var updateChat = function(){
-              // Call the CloudMine API to grab all the data from the server. In this case
-              // we want to get all the keys since they represent all the messages.
-              var chat = '';
-              cloudmine.getValues(null, function(success) {
-                  // Basic string concatination to build the string
-                  // to display to the user in the chat box.
-                  success.forEach(function(key, value){
-                      chat += value.name + ': ' + value.message + "\n";
-                  });
-
-                  // Show the assembled string in the chat box.
-                  $('#chat').val(chat);
-              });
-          }
-
-          updateChat();
-          setInterval(updateChat, 1000);
-      });
-    </script>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+	<script language="javascript">
+      function createTopbar()
+	  {
+			//if logged in
+			if(false)
+			{
+			}
+			else
+			{
+				var form = document.createElement("form");
+				form.action="";
+				form.class="pull-right";
+				
+				var usernameInput = document.createElement("input");
+				usernameInput.class="input-small";
+				usernameInput.type="text";
+				usernameInput.placeholder="Username";
+				
+				var passwordInput = document.createElement("input");
+				passwordInput.class="input-small";
+				passwordInput.type="password";
+				passwordInput.placeholder="Password";
+				
+				var login = document.createElement("button");
+				login.class="btn";
+				login.type="submit";
+				login.value="Sign in";
+				
+				form.appendChild(usernameInput);
+				form.appendChild(passwordInput);
+				form.appendChild(login);
+			}
+	  }
+	</script>
   </head>
   <body>
-    <textarea id="chat" cols="60" rows="20"></textarea>
-    <p>Name: <input type="text" id="name" /> Message: <input type="text" id="message" /></p>
+	<div class="topbar" data-scrollspy="scrollspy">
+		<div class="fill">
+			<div class="container">
+				<a class="brand" href="#"> &nbsp </a>
+			    <form action="" class="pull-right">
+					<input class="input-small" type="text" placeholder="Username">
+					<input class="input-small" type="password" placeholder="Password">
+					<button class="btn" type="submit">Sign in</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="row"> </div>
+		<div class="row">
+			<div class="span11">
+				<img src="./img/logo.png">
+			</div>
+			<div class="span5" style="margin-top:100px;">
+				<form>
+					<fieldset>
+						<legend>new user?</legend>
+						<div class="input" style="margin-bottom:10px">
+							<input type="radio" checked name="studentRadio" value="student">student</input>
+							<input style="margin-left:30px" type="radio" checked name="studentRadio" value="teacher">teacher</input>
+						</div>
+						<div class="clearfix">
+							<div class="input">
+							  <input class="xlarge" type="text" placeholder="name" id="name"></input>
+							</div>
+						</div>
+						<div class="clearfix">
+							<div class="input">
+							  <input class="xlarge" type="email" placeholder="school email" id="email"></input>
+							</div>
+						</div>
+						<div class="clearfix">
+							<div class="input">
+							  <input class="xlarge" type="password" placeholder="password" id="password"></input>
+							</div>
+						</div>
+						<div class="clearfix">
+							<input type="submit" class="btn large primary" value="Sign up!" style="margin-left:221px"></input>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
   </body>
 </html>
