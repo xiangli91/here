@@ -35,7 +35,7 @@ function createTopbar(topbarID)
 			else
 			{
 				var form = document.createElement("form");
-				form.action="/signup/";
+				form.action="/login/";
 				form.method="post";
 				
 				var usernameInput = document.createElement("input");
