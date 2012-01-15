@@ -1,4 +1,4 @@
-function createTopbar()
+function createTopbar(topbarID)
 	  {
 			var main= document.createElement("div");
 			main.className="fill";
@@ -8,10 +8,14 @@ function createTopbar()
 			brand.className="brand";
 			brand.href="#";
 			brand.innerHTML=" ";
+			var logo = document.createElement("img");
+			logo.src="./img/logo.png";
+			logo.className="logo";
 			var rightSide= document.createElement("div");
 			rightSide.className="pull-right";
 			
 			main.appendChild(container);
+			brand.appendChild(logo);
 			container.appendChild(brand);
 			container.appendChild(rightSide);
 			
@@ -31,7 +35,8 @@ function createTopbar()
 			else
 			{
 				var form = document.createElement("form");
-				form.action="";
+				form.action="/signup/";
+				form.method="post";
 				
 				var usernameInput = document.createElement("input");
 				usernameInput.className="input-small";
@@ -53,5 +58,5 @@ function createTopbar()
 				form.appendChild(login);
 				rightSide.appendChild(form);
 			}
-			document.getElementById("topbar").appendChild(main);
+			document.getElementById(topbarID).appendChild(main);
 	  }
