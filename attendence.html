@@ -7,7 +7,22 @@
 	<link rel="stylesheet" type="text/css" href="./css/here.css" />
 	
 	<script language="javascript">
-      
+      $.post('/getAttendence/',"get",
+		function(data){
+			main = document.getElementById("attendenceTableDiv");
+			table = document.createElement("table");
+			table.className="bordered-table zebra-striped";
+			var array = JSON.parse(data);
+			for(var i = 0; i<array.length;i++)
+			{
+				var row=0;
+				for(var index in array[i])
+				{
+					tr = document.createElement("tr");
+					//for
+				}
+			}
+	  });
 	</script>
   </head>
   <body onload="createTopbar('topbar');" style="background-color:#CCFFFF'">
@@ -19,12 +34,9 @@
         </div>
         <div class="row">
           <div class="span4">
-			
             <h3>Attendence for Econ 101-001</h3>
           </div>
-		  <div class="span12">
-			<table class="bordered-table zebra-striped">
-			</table>
+		  <div class="span12" id="attendenceTableDiv">
           </div>
         </div>
       </div>

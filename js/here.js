@@ -42,11 +42,13 @@ function createTopbar(topbarID)
 				usernameInput.className="input-small";
 				usernameInput.type="text";
 				usernameInput.placeholder="Username";
+				usernameInput.name="un";
 				
 				var passwordInput = document.createElement("input");
 				passwordInput.className="input-small";
 				passwordInput.type="password";
 				passwordInput.placeholder="Password";
+				passwordInput.name="pw";
 				
 				var login = document.createElement("input");
 				login.className="btn primary";
