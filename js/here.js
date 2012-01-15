@@ -37,6 +37,8 @@ function createTopbar(topbarID)
 				var form = document.createElement("form");
 				form.action="/login/";
 				form.method="post";
+				form.className="login";
+				form.style.marginTop="13px";
 				
 				var usernameInput = document.createElement("input");
 				usernameInput.className="input-small";

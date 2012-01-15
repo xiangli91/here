@@ -15,13 +15,15 @@
 			var array = JSON.parse(data);
 			for(var i = 0; i<array.length;i++)
 			{
-				var row=0;
+				tr = document.createElement("tr");
 				for(var index in array[i])
 				{
-					tr = document.createElement("tr");
-					//for
+					td = document.createElement("td");
+					td.innerHTML = array[i][index];
 				}
+				table.appendChild(tr);
 			}
+			main.appendChild(table);
 	  });
 	</script>
   </head>
